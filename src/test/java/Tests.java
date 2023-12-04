@@ -19,10 +19,7 @@ import org.openqa.selenium.Keys;
 public class Tests {
 Mozabrick mozabrick = new Mozabrick();
 
-    @BeforeEach
-    void addListener() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
+
 
     @Test
     void CheckingAnEmptyCart() {
