@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -9,35 +8,35 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import org.openqa.selenium.Keys;
 
-
-public class SearchTests {
+public class Tests {
+Mozabrick mozabrick = new Mozabrick();
 
     @Test
-    void Test1() {
-        open("https://mozabrick.ru/");
-        $(".nav__item:nth-child(2)").click();
-        $(".delivery-hidden-xs > .delivery_city:nth-child(1) > .delivery_city_title").shouldHave(text("Москва и Область"));
+    void OpeningTheDeliveryPage() {
+        mozabrick.OpenSite()
+                .ClickDelivery()
+                .TheDeliveryPageHasOpened();
     }
 
     @Test
-    void Test2() {
-        open("https://mozabrick.ru/");
-        $(".icon-cart > use").click();
-        $(".promo__title").shouldHave(text("ФОТО-КОНСТРУКТОР MOZABRICK"));
+    void CheckingAnEmptyCart() {
+        mozabrick.OpenSite()
+                 .ClickOnCart()
+                 .StayedOnTheMainPage();
     }
 
     @Test
     void Test3() {
-        open("https://mozabrick.ru/");
-        $(".nav__item:nth-child(1)").click();
-        $(byLinkText("Купить")).click();
-        $(".reviews__button").click();
-        $(".basketPage__list-inner > .basketPage__title").shouldHave(text("КОРЗИНА"));
+        mozabrick.OpenSite()
+                 .ClickBuyDesigner()
+                 .ClickBuyOnTheFirstSet()
+                 .GoToCart()
+                 .MakeSureWeAreInTheCart();
     }
 
     @Test
     void Test4() {
-        open("https://mozabrick.ru/");
+        new Mozabrick().OpenSite();
         $(".nav__item:nth-child(1)").click();
         $(byLinkText("Купить")).click();
         $(".reviews__button").click();
@@ -48,7 +47,7 @@ public class SearchTests {
 
     @Test
     void Test5() {
-        open("https://mozabrick.ru/");
+        new Mozabrick().OpenSite();
         $(".header__city-select-open:nth-child(4) > .header__city-select-open-value > .open-window2").click();
         $("#cityNameField").click();
         $("#cityNameField").val("Саратов");
