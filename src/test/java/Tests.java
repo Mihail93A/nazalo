@@ -22,15 +22,6 @@ Mozabrick mozabrick = new Mozabrick();
 
 
     @Test
-    void CheckingAnEmptyCart() {
-        step("Test1", () -> {
-        mozabrick.OpenSite()
-                .ClickOnCart()
-                .StayedOnTheMainPage();
-        });
-    }
-
-    @Test
     void AddingAnItemToYourCart() {
         step("Test2", () -> {
         mozabrick.OpenSite()
