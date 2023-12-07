@@ -29,3 +29,6 @@ $body = @{
 } | ConvertTo-Json
 $url = 'https://api.telegram.org/bot6400242915:AAHPx5_4DX8lKBMOS-nfN98v0uYWdkcfGCg/sendMessage'
 $response = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
+
+Run jar with notifications
+java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.2.1.jar
