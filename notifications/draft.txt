@@ -11,3 +11,21 @@ curl https://api.telegram.org/bot6400242915:AAHPx5_4DX8lKBMOS-nfN98v0uYWdkcfGCg/
 Send a message using the HTTP API:
 curl -X POST  -H 'Content-Type: application/json' -d '{"chat_id": "123456789", "text": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage
 curl -X POST  -H 'Content-Type: application/json' -d '{"chat_id": "-1001947908197", "text": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/bot6400242915:AAHPx5_4DX8lKBMOS-nfN98v0uYWdkcfGCg/sendMessage
+Invoke-RestMethod -X POST  -H 'Content-Type: application/json' -d '{"chat_id": "-1001947908197", "text": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/bot6400242915:AAHPx5_4DX8lKBMOS-nfN98v0uYWdkcfGCg/sendMessage
+
+curl -X POST \
+     -H 'Content-Type: application/json' \
+     -d '{"chat_id": "-1001947908197", "text": "This is a test from curl", "disable_notification": true}' \
+     https://api.telegram.org/bot6400242915:AAHPx5_4DX8lKBMOS-nfN98v0uYWdkcfGCg/sendMessage
+
+
+$headers = @{
+    'Content-Type' = 'application/json'
+}
+$body = @{
+    'chat_id' = '-1001947908197'
+    'text' = 'Privet'
+    'disable_notification' = $true
+} | ConvertTo-Json
+$url = 'https://api.telegram.org/bot6400242915:AAHPx5_4DX8lKBMOS-nfN98v0uYWdkcfGCg/sendMessage'
+$response = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
