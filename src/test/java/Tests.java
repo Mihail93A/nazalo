@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -12,6 +13,7 @@ public class Tests {
 Mozabrick mozabrick = new Mozabrick();
 
     @Test
+    @Order(1)
     void OpeningTheDeliveryPage() {
         mozabrick.OpenSite()
                 .ClickDelivery()
@@ -19,6 +21,7 @@ Mozabrick mozabrick = new Mozabrick();
     }
 
     @Test
+    @Order(2)
     void CheckingAnEmptyCart() {
         mozabrick.OpenSite()
                  .ClickOnCart()
@@ -26,6 +29,7 @@ Mozabrick mozabrick = new Mozabrick();
     }
 
     @Test
+    @Order(3)
     void AddingAnItemToYourCart() {
         mozabrick.OpenSite()
                  .ClickBuyDesigner()
@@ -35,6 +39,7 @@ Mozabrick mozabrick = new Mozabrick();
     }
 
     @Test
+    @Order(4)
     void DeletingFromTheTrash() {
         mozabrick.OpenSite()
                  .ClickBuyAConstructor()
@@ -47,6 +52,7 @@ Mozabrick mozabrick = new Mozabrick();
 
 
     @Test
+    @Order(5)
     void ChangingTheCityToSaratov() {
          mozabrick.OpenSite()
                  .ClickOnTheNameOfTheCity()
