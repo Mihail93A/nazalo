@@ -1,7 +1,8 @@
+import org.openqa.selenium.Keys;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Mozabrick {
 
@@ -11,7 +12,11 @@ public class Mozabrick {
         return this;
     }
 
+/*
 
+1_OpeningTheDeliveryPage
+
+*/
 
 
     public Mozabrick ClickDelivery(){
@@ -25,6 +30,11 @@ public class Mozabrick {
     }
 
 
+/*
+
+2_CheckingAnEmptyCart
+
+*/
 
 
     public Mozabrick ClickOnCart(){
@@ -38,6 +48,11 @@ public class Mozabrick {
     }
 
 
+/*
+
+3_AddingAnItemToYourCart
+
+*/
 
 
 
@@ -62,6 +77,85 @@ public class Mozabrick {
 
 
 
+/*
+
+ DeletingFromTheTrash() {
+
+
+*/
+
+
+    public Mozabrick ClickBuyAConstructor(){
+          $(".nav__item:nth-child(1)").click();
+        return this;
+    }
+
+    public Mozabrick ClickOnTheFirstSetToBuy(){
+        $(byLinkText("Купить")).click();
+        return this;
+    }
+
+    public Mozabrick ClickGoToCart(){
+        $(".reviews__button").click();
+        return this;
+    }
+
+
+    public Mozabrick MakeSureThatWeAreInTheBasket(){
+        $(".basketPage__list-inner > .basketPage__title").shouldHave(text("КОРЗИНА"));
+        return this;
+    }
+
+        public Mozabrick RemoveAnItemFromTheShoppingCart(){
+            $(".fa-times-circle").click();
+        return this;
+    }
+
+        public Mozabrick MakeSureThatTheTrashIsEmpty(){
+            $("h1").shouldHave(text("Ваша корзина пуста!"));
+        return this;
+    }
+
+/*
+    ChangingTheCityToSaratov
+*/
+
+
+    public Mozabrick ClickOnTheNameOfTheCity(){
+           $(".header__city-select-open:nth-child(4) > .header__city-select-open-value > .open-window2").click();
+        return this;
+    }
+
+
+    public Mozabrick ClickOnTheLineSelectACity(){
+         $("#cityNameField").click();
+        return this;
+    }
+
+
+    public Mozabrick WeIntroduceTheCityOfSaratov(){
+        $("#cityNameField").val("Саратов");
+        return this;
+    }
+
+
+
+        public Mozabrick PressEnter(){
+        $("#cityNameField").sendKeys(Keys.ENTER);
+        return this;
+    }
+
+
+
+        public Mozabrick CheckingWhetherTheCityOfSaratovIsReallyThere(){
+        $(".header__city-select-open:nth-child(4) > .header__city-select-open-value > .open-window2").shouldHave(text("Саратов"));
+        return this;
+    }
+
+    public Mozabrick Sleep(){
+        sleep(5000);
+        return this;
+    }
 
 
 
