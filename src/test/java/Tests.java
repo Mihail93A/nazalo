@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import org.openqa.selenium.Keys;
 
-public class Tests {
+public class Tests extends TestBase {
 Mozabrick mozabrick = new Mozabrick();
 
     @Test
