@@ -1,5 +1,4 @@
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -13,6 +12,8 @@ public class Tests extends TestBase {
 Mozabrick mozabrick = new Mozabrick();
 
     @Test
+    @DisplayName("Просто пишем то что тест тестирует")
+    @Tag("GUI_TEST")
     @Order(1)
     void OpeningTheDeliveryPage() {
         mozabrick.OpenSite()
