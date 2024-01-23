@@ -28,9 +28,9 @@ tasks.withType(Test) {
     }
 }
 
-task smoke_tests(type: Test) {
+task hello_test(type: Test) {
     useJUnitPlatform {
-        includeTags("smoke")
+        includeTags("hello")
     }
 }
 
