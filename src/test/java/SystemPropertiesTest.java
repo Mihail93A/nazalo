@@ -17,6 +17,7 @@ public class SystemPropertiesTest {
     }
 
     @Test
+    @Tag("balu")
     void simpleProperty2Test() {
         String browserName = System.getProperty("browser", "firefox");
         System.out.println(browserName); // firefox
@@ -45,6 +46,8 @@ public class SystemPropertiesTest {
     @Tag("hello")
     void simpleProperty5Test() {
         System.out.println("Hello, " + System.getProperty("user_name", "unknown student"));
+
+
 
         /*
         gradle clean hello_test
